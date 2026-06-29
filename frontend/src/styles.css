@@ -1,0 +1,420 @@
+:root {
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --border: #e2e5ea;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-d: #1d4ed8;
+  --danger: #dc2626;
+  --ok: #15803d;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.app-header h1 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.auth-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sidebar,
+.content {
+  min-width: 0;
+}
+
+/* --- Панели и формы --- */
+.create-form {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 20px;
+}
+
+.create-form h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.field > span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.field em {
+  color: var(--danger);
+  font-style: normal;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* --- Кнопки --- */
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  padding: 7px 12px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-d);
+}
+
+.btn-secondary {
+  background: #fff;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-ghost {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.btn-danger {
+  background: #fff;
+  border-color: var(--danger);
+  color: var(--danger);
+  padding: 5px 10px;
+}
+.btn-danger:hover:not(:disabled) {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* --- Тулбар фильтров --- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+}
+
+.toolbar .search {
+  flex: 1 1 220px;
+  min-width: 180px;
+  align-self: stretch;
+}
+
+.toolbar .field {
+  margin-bottom: 0;
+}
+
+/* --- Таблица --- */
+.table-wrap {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-x: auto;
+  box-shadow: var(--shadow);
+}
+
+table.tickets {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tickets th,
+.tickets td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.tickets th {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: #fafbfc;
+}
+
+.tickets tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tickets tbody tr:hover {
+  background: #fafbfc;
+}
+
+.col-id {
+  width: 48px;
+  color: var(--muted);
+}
+.col-date {
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: 13px;
+}
+.col-actions {
+  width: 90px;
+}
+
+.ticket-title {
+  font-weight: 600;
+}
+.ticket-desc {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 2px;
+  max-width: 360px;
+}
+
+.row-busy {
+  opacity: 0.55;
+}
+
+/* --- Бейджи / статусы --- */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+
+.prio-low {
+  background: #eef2f7;
+  color: #475569;
+}
+.prio-normal {
+  background: #e0edff;
+  color: #1d4ed8;
+}
+.prio-high {
+  background: #fde8e8;
+  color: #b91c1c;
+}
+
+.admin-badge {
+  background: #ecfdf3;
+  color: var(--ok);
+  border-color: #bbf7d0;
+}
+
+.status-select {
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-weight: 600;
+  font-size: 13px;
+}
+.status-new {
+  border-color: #93c5fd;
+}
+.status-in_progress {
+  border-color: #fbbf24;
+}
+.status-done {
+  border-color: #86efac;
+  color: var(--ok);
+}
+
+/* --- Пагинация --- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.page-info {
+  color: var(--muted);
+}
+.muted {
+  color: var(--muted);
+}
+
+/* --- Состояния --- */
+.state {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.state-error {
+  border-color: #fca5a5;
+  color: var(--danger);
+}
+.state-error button {
+  margin-top: 10px;
+}
+.reloading {
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 0.1s;
+}
+
+/* --- Баннеры --- */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  border: 1px solid;
+}
+.banner-error {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: var(--danger);
+}
+.banner-ok {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: var(--ok);
+}
+.banner-close {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: inherit;
+  padding: 0 4px;
+}
+
+.form-error {
+  color: var(--danger);
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+/* --- Модалка логина --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+.modal {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 22px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+.modal h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}

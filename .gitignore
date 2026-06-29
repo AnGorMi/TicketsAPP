@@ -1,0 +1,23 @@
+# --- Python / backend ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.db
+.env
+.pytest_cache/
+
+# --- Node / frontend ---
+node_modules/
+dist/
+*.local
+
+# --- Логи и временные файлы запуска ---
+*.log
+.tmp/
+
+# --- Редактор / инструменты ---
+.claude/
+.vscode/
+.idea/
+.DS_Store
